@@ -10,6 +10,15 @@ function Display() {
 
     const [ state, setState ] = useState(initialState);
 
+    const handlePeople = (event) => {
+        setState(prevState => {
+            return{
+                ...prevState,
+                numOfPeople: parseInt(event.target.value)
+            }
+        })
+    }
+
     const handleTip = (percentage) => {
         setState(prevState => {
             return{
@@ -23,7 +32,10 @@ function Display() {
         <div>
             <p>How much was your bill?</p>
             <input type="number" step="0.01"/>
+            <p>How was your service?</p>
             <DropdownList handleTip={handleTip}/>
+            <p>How many people are sharing the bill?</p>
+            <input onChange={handlePeople} type="number"/>
         </div>
     )
 }
