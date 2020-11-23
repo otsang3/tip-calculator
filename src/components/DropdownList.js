@@ -6,15 +6,19 @@ function DropdownList() {
 
     const [ state, setState ] = useState(initialState);
 
+    const handleChange = (event) => {
+        console.log(event.target.value);
+    };
+
     const renderDropdown = () => {
         const arr = [];
-        Object.keys(state).map((listItem, index) => arr.push(<option>{listItem} - {state[listItem]}%</option>))
+        Object.keys(state).map((listItem, index) => arr.push(<option key={index} value={state[listItem]}>{listItem} - {state[listItem]}%</option>))
         return arr;
-    }
+    };
 
     return(
         <div>
-            <select>
+            <select onChange={handleChange}>
                 {renderDropdown()}
             </select>
         </div>
