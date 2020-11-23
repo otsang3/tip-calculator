@@ -1,9 +1,9 @@
-
+import Display from './components/Display'
 
 function App() {
   return (
     <div>
-      Tip Calculator
+      <Display/>
     </div>
   );
 }
