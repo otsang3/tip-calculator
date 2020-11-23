@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-function DropdownList() {
+function DropdownList(props) {
 
     const initialState = { "Outstanding": 30, "Good": 20, "Satisfactory": 10, "Poor": 5 }
 
     const [ state, setState ] = useState(initialState);
 
     const handleChange = (event) => {
-        console.log(event.target.value);
+        props.handleTip(event.target.value)
     };
 
     const renderDropdown = () => {
