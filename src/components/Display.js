@@ -60,20 +60,6 @@ function Display() {
     }
 
     return(
-        // <div>
-        //     {renderTip()}
-        //     <p>How much was your bill?</p>
-        //     <input onChange={handleBill} type="number" step="0.01"/>
-        //     <p>How was your service?</p>
-        //     <DropdownList handleTip={handleTip}/>
-        //     <p>How many people are sharing the bill?</p>
-        //     <input onChange={handlePeople} type="number"/>
-        //     <div>
-        //         <button onClick={calculateTip}>Calculate tip</button>
-        //     </div>
-            
-        // </div>
-
         <div>
             <form onSubmit={calculateTip}>
                 {renderTip()}
@@ -83,7 +69,9 @@ function Display() {
                 <DropdownList handleTip={handleTip}/>
                 <p>How many people are sharing the bill?</p>
                 <input onChange={handlePeople} type="number" required/>
-                <input type="submit"/>
+                <div>
+                    <input type="submit"/>
+                </div>
             </form>
         </div>
     )
