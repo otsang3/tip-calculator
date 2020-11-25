@@ -15,10 +15,11 @@ function Display() {
     const calculateTip = (e) => {
         e.preventDefault();
         const tip = (((state.bill / 100) * state.serviceLevel) / state.numOfPeople);
+        
         setState(prevState => {
             return{
                 ...prevState,
-                tip: tip
+                tip: Math.round(tip * 100) / 100
             }
         })
     }
