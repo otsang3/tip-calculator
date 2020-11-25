@@ -12,7 +12,8 @@ function Display() {
 
     const [ state, setState ] = useState(initialState);
 
-    const calculateTip = () => {
+    const calculateTip = (e) => {
+        e.preventDefault();
         const tip = (((state.bill / 100) * state.serviceLevel) / state.numOfPeople);
         setState(prevState => {
             return{
@@ -58,18 +59,31 @@ function Display() {
     }
 
     return(
-        <div>
-            {renderTip()}
-            <p>How much was your bill?</p>
-            <input onChange={handleBill} type="number" step="0.01"/>
-            <p>How was your service?</p>
-            <DropdownList handleTip={handleTip}/>
-            <p>How many people are sharing the bill?</p>
-            <input onChange={handlePeople} type="number"/>
-            <div>
-                <button onClick={calculateTip}>Calculate tip</button>
-            </div>
+        // <div>
+        //     {renderTip()}
+        //     <p>How much was your bill?</p>
+        //     <input onChange={handleBill} type="number" step="0.01"/>
+        //     <p>How was your service?</p>
+        //     <DropdownList handleTip={handleTip}/>
+        //     <p>How many people are sharing the bill?</p>
+        //     <input onChange={handlePeople} type="number"/>
+        //     <div>
+        //         <button onClick={calculateTip}>Calculate tip</button>
+        //     </div>
             
+        // </div>
+
+        <div>
+            <form onSubmit={calculateTip}>
+                {renderTip()}
+                <p>How much was your bill?</p>
+                <input onChange={handleBill} type="number" step="0.01" required/>
+                <p>How was your service?</p>
+                <DropdownList handleTip={handleTip}/>
+                <p>How many people are sharing the bill?</p>
+                <input onChange={handlePeople} type="number" required/>
+                <input type="submit"/>
+            </form>
         </div>
     )
 }
