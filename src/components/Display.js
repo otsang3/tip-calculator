@@ -5,14 +5,21 @@ function Display() {
 
     const initialState = {
         bill: 0,
-        numOfPeople: 0,
-        tip: 0
+        numOfPeople: 1,
+        serviceLevel: null,
+        tip: null
     }
 
     const [ state, setState ] = useState(initialState);
 
     const calculateTip = () => {
-        console.log("test");
+        const tip = (((state.bill / 100) * state.serviceLevel) / state.numOfPeople);
+        setState(prevState => {
+            return{
+                ...prevState,
+                tip: tip
+            }
+        })
     }
 
     const handleBill = (event) => {
@@ -37,13 +44,22 @@ function Display() {
         setState(prevState => {
             return{
                 ...prevState,
-                tip: parseInt(percentage)
+                serviceLevel: parseInt(percentage)
             }
         })
     }
 
+    const renderTip = () => {
+        if (state.tip) {
+            return(
+                <div>The tip is {state.tip} per person</div>
+            )
+        }
+    }
+
     return(
         <div>
+            {renderTip()}
             <p>How much was your bill?</p>
             <input onChange={handleBill} type="number" step="0.01"/>
             <p>How was your service?</p>
