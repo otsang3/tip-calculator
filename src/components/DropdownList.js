@@ -18,7 +18,7 @@ function DropdownList(props) {
 
     return(
             <select onChange={handleChange} required>
-                <option disabled selected>Select an option</option>
+                <option disabled selected value="">Select an option</option>
                 {renderDropdown()}
             </select>
         
