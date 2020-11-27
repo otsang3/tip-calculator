@@ -24,24 +24,11 @@ function Display() {
         })
     }
 
-    const handleBill = (event) => {
-        setState(prevState => {
-            return {
-                ...prevState,
-                bill: event.target.value
-            }
-        })
-    }
-
-    const handleClear = () => {
-        setState(initialState)
-    }
-
-    const handlePeople = (event) => {
+    const handleInput = (event) => {
         setState(prevState => {
             return{
                 ...prevState,
-                numOfPeople: parseInt(event.target.value)
+                [event.target.name]: event.target.value
             }
         })
     }
@@ -68,11 +55,11 @@ function Display() {
             {renderTip()}
             <form onSubmit={calculateTip}>
                 <p>How much was your bill?</p>
-                <input onChange={handleBill} type="number" step="0.01" value={state.bill} required/>
+                <input name="bill" onChange={handleInput} type="number" step="0.01" value={state.bill} required/>
                 <p>How was your service?</p>
                 <DropdownList handleTip={handleTip} state={state}/>
                 <p>How many people are sharing the bill?</p>
-                <input onChange={handlePeople} type="number" value={state.numOfPeople} required/>
+                <input name="numOfPeople" onChange={handleInput} type="number" value={state.numOfPeople} required/>
                 <div>
                     <input type="submit" value="Calculate tip"/>
                 </div>
