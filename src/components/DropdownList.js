@@ -17,7 +17,7 @@ function DropdownList(props) {
     };
 
     return(
-            <select defaultValue="" onChange={handleChange} required>
+            <select defaultValue={props.state.serviceLevel} onChange={handleChange} required>
                 <option disabled value="">Select an option</option>
                 {renderDropdown()}
             </select>

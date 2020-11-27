@@ -4,9 +4,9 @@ import DropdownList from './DropdownList';
 function Display() {
 
     const initialState = {
-        bill: 0,
-        numOfPeople: 1,
-        serviceLevel: null,
+        bill: '',
+        numOfPeople: '',
+        serviceLevel: '',
         tip: null
     }
 
@@ -31,6 +31,10 @@ function Display() {
                 bill: event.target.value
             }
         })
+    }
+
+    const handleClear = () => {
+        setState(initialState)
     }
 
     const handlePeople = (event) => {
@@ -61,16 +65,16 @@ function Display() {
 
     return(
         <div>
+            {renderTip()}
             <form onSubmit={calculateTip}>
-                {renderTip()}
                 <p>How much was your bill?</p>
-                <input onChange={handleBill} type="number" step="0.01" required/>
+                <input onChange={handleBill} type="number" step="0.01" value={state.bill} required/>
                 <p>How was your service?</p>
-                <DropdownList handleTip={handleTip}/>
+                <DropdownList handleTip={handleTip} state={state}/>
                 <p>How many people are sharing the bill?</p>
-                <input onChange={handlePeople} type="number" required/>
+                <input onChange={handlePeople} type="number" value={state.numOfPeople} required/>
                 <div>
-                    <input type="submit"/>
+                    <input type="submit" value="Calculate tip"/>
                 </div>
             </form>
         </div>
