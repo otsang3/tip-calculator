@@ -15,15 +15,16 @@ code {
 .app {
   background-color: red;
   height: 100vh;
+  padding: 10em;
 }
 
 .main-container {
   background-color: rgba(0, 0, 0, 0.3);
-  border: 1px solid black;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 auto;
+  margin: auto;
   text-align:  center;
   width: 500px;
 }
@@ -39,5 +40,5 @@ select {
 }
 
 .tip-button {
-  margin-top: 0.5em;
+  margin: 0.5em 0em;
 }
