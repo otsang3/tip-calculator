@@ -60,7 +60,7 @@ function Display() {
                 <DropdownList handleTip={handleTip} state={state}/>
                 <p>How many people are sharing the bill?</p>
                 <input name="numOfPeople" onChange={handleInput} type="number" value={state.numOfPeople} required/>
-                <div>
+                <div className="tip-button">
                     <input type="submit" value="Calculate tip"/>
                 </div>
             </form>

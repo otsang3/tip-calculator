@@ -18,13 +18,14 @@ code {
 }
 
 .main-container {
+  background-color: rgba(0, 0, 0, 0.3);
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  text-align:  center;
   justify-content: center;
-  width: 500px;
   margin: 0 auto;
+  text-align:  center;
+  width: 500px;
 }
 
 .main-container input {
@@ -35,4 +36,8 @@ code {
 select {
   margin: 0 auto;
   width: 10em;
+}
+
+.tip-button {
+  margin-top: 0.5em;
 }
