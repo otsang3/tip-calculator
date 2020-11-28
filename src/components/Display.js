@@ -53,7 +53,7 @@ function Display() {
     return(
         <div>
             {renderTip()}
-            <form onSubmit={calculateTip}>
+            <form className="main-container" onSubmit={calculateTip}>
                 <p>How much was your bill?</p>
                 <input name="bill" onChange={handleInput} type="number" step="0.01" value={state.bill} required/>
                 <p>How was your service?</p>
