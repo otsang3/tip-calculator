@@ -7,7 +7,8 @@ function Display() {
         bill: '',
         numOfPeople: '',
         serviceLevel: '',
-        tip: null
+        tip: null,
+        totalPerPerson: null
     }
 
     const [ state, setState ] = useState(initialState);
@@ -15,11 +16,13 @@ function Display() {
     const calculateTip = (e) => {
         e.preventDefault();
         const tip = (((state.bill / 100) * state.serviceLevel) / state.numOfPeople);
+        const total = (state.bill / state.numOfPeople);
         
         setState(prevState => {
             return{
                 ...prevState,
-                tip: Math.round(tip * 100) / 100
+                tip: Math.round(tip * 100) / 100,
+                totalPerPerson: parseInt(total)
             }
         })
     }
@@ -45,7 +48,11 @@ function Display() {
     const renderTip = () => {
         if (state.tip) {
             return(
-                <div>The tip is {state.tip} per person</div>
+                <div>
+                    <p>Bill: £{state.bill}</p>
+                    <p>Tip per person: £{state.tip}</p>
+                    <p>Total per person: £{((state.tip / state.numOfPeople) + state.totalPerPerson)}</p>
+                </div>
             )
         }
     }
