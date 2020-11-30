@@ -48,10 +48,10 @@ function Display() {
     const renderTip = () => {
         if (state.tip) {
             return(
-                <div>
+                <div className="result-display">
                     <p>Bill: £{state.bill}</p>
                     <p>Tip per person: £{state.tip}</p>
-                    <p>Total per person: £{((state.tip / state.numOfPeople) + state.totalPerPerson)}</p>
+                    <p style={{fontWeight:700}}>Total per person: £{((state.tip / state.numOfPeople) + state.totalPerPerson)}</p>
                 </div>
             )
         }
